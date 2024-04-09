@@ -8,10 +8,10 @@ jspdf.onload = () => {
         let cvs = document.createElement('canvas');
         let ctx = cvs.getContext('2d');
         cvs.width = img.width*1.25;
-        cvs.height = img.height*1.25;
+        cvs.height = img.height;
         ctx.drawImage(img, 0, 0);
         let imgData = cvs.toDataURL("image/jpeg", 1.0);
-        pdf.addImage(imgData, 'JPEG', 0, 0);
+        pdf.addImage(imgData, 'JPEG', 0, -7);
         pdf.addPage();
     }
     pdf.save(document.title.split('.pdf - ')[0]+".pdf");
